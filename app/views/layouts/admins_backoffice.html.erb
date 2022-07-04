@@ -93,8 +93,8 @@
                            
                                 <div class="dropdown-divider"></div>
                                
-                                <%= link_to destroy_admin_session_path, method: :delete do %>
-                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
+                                <%= link_to destroy_admin_session_path, class:"dropdown-item", method: :delete do %>
+                                     <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-400"></i> Sair
                                 <% end %>
                             </div>
                         </li>
@@ -106,9 +106,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                          <%= yield %>
+                    <%= yield %>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -158,7 +156,17 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'admins_backoffice' %>
-
+    
+<% if notice %>
+    <%= javascript_tag do %>
+      $.bootstrapGrowl('<%= notice %>', {
+      type: 'success',
+      align: 'right',
+      allow_dismiss: true,
+      stackup_spacing: 10
+      });
+    <% end %>
+<% end %>
    
 
 </body>
