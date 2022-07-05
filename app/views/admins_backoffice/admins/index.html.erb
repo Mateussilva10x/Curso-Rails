@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h1 class="h3 mb-2 text-gray-800">Listando Administradores</h1>
+  <h1 class="h3 mb-2 text-gray-800"><%= t('messages.listing', model: @adnmins.model_name.human(count: 2)) %></h1>
   <div class="card-body">
     <div class="table-responsive">
         <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -15,7 +15,7 @@
                     #
                   </th>
                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 50px;">
-                    Email
+                    <%= translate_attribute(@admins, :email)%>
                   </th>
                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 50px;">
                     <%= link_to new_admins_backoffice_admin_path, class:"btn btn-success btn-circle" do %>
@@ -34,7 +34,7 @@
                         <i class="fa fa-edit"></i>
                     <% end %>
 
-                     <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-circle", data: {confirm: "Deseja realmente excluir este administrador?"} do %>
+                     <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-circle", data: {confirm: t('messages.confirm_with', item: admin.description.truncate(15))} do %>
                         <i class="fa fa-trash"></i>
                     <% end %>
                 </td>
