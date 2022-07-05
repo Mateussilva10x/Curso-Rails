@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h1 class="h3 mb-2 text-gray-800">Listando Administradores</h1>
+  <h1 class="h3 mb-2 text-gray-800">Listando Assuntos/Áreas</h1>
   <div class="card-body">
     <div class="table-responsive">
         <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -15,26 +15,26 @@
                     #
                   </th>
                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 50px;">
-                    Email
+                    Descrição
                   </th>
                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 50px;">
-                    <%= link_to new_admins_backoffice_admin_path, class:"btn btn-success btn-circle" do %>
+                    <%= link_to new_admins_backoffice_subject_path, class:"btn btn-success btn-circle" do %>
                       <i class="fa fa-plus"></i>
                     <% end %>
                   </th>
                 </tr>
             </thead>
             <tbody>
-              <% @admins.each do |admin| %>              
+              <% @subjects.each do |subject| %>              
               <tr class="odd">
-                <td class="sorting_1"><%= admin.id %></td>
-                <td><%= admin.email %></td>
+                <td class="sorting_1"><%= subject.id %></td>
+                <td><%= subject.description %></td>
                 <td>
-                    <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-info btn-circle" do %>
+                    <%= link_to edit_admins_backoffice_subject_path(subject), class:"btn btn-info btn-circle" do %>
                         <i class="fa fa-edit"></i>
                     <% end %>
 
-                     <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-circle", data: {confirm: "Deseja realmente excluir este administrador?"} do %>
+                     <%= link_to admins_backoffice_subject_path(subject), method: :delete, class:"btn btn-danger btn-circle", data: {confirm: "Deseja realmente excluir este assunto/área?"} do %>
                         <i class="fa fa-trash"></i>
                     <% end %>
                 </td>
@@ -42,7 +42,7 @@
               <% end %>
             </tbody>
           </table>
-          <%= paginate @admins %>
+          <%= paginate @subjects %>
         </div>
       </div>
     </div>
