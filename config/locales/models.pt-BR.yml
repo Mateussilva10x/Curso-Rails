@@ -1,4 +1,4 @@
-"pt-BR":
+'pt-BR':
   activerecord:
     models:
       admin:
@@ -12,31 +12,40 @@
         other: Assuntos
       question:
         one: Questão
-        other: Questões
+        other: Questões  
     attributes:
       admin:
-        id: Código
+        id: identificação
         email: Email
-        password: Senha
-        password_confirmation: Confirmar Senha
+        password: "Senha"
+        password_confirmation: "Confirmação da senha"
         created_at: Criado em
         updated_at: Atualizado em
       user:
-        id: Código
+        id: identificação
         email: Email
+        first_name: Nome 
+        last_name: Sobrenome
         password: Senha
-        password_confirmation: Confirmar Senha
+        password_confirmation: Confirmação da senha
+        created_at: Criado em
+        updated_at: Atualizado em
+      user_profile:
+        id: identificação
+        address: Endereço
+        gender: Gênero
+        birthdate: Data de Nascimento
         created_at: Criado em
         updated_at: Atualizado em
       subject:
-        id: Código
+        id: identificação
         description: Descrição
         created_at: Criado em
         updated_at: Atualizado em
       question:
-        id: Código
+        id: identificação
         description: Descrição
         subject: Assunto
         subject_id: Assunto
         created_at: Criado em
-        updated_at: Atualizado em
+        updated_at: Atualizado em  

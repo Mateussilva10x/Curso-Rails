@@ -7,25 +7,26 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   end
 
   def new
-    @admin = Admin.new    
+    @admin = Admin.new
   end
 
+  
   def create
     @admin = Admin.new(params_admin)
-
     if @admin.save
-      redirect_to admins_backoffice_admins_path, notice: "Administrador Cadastrado com sucesso!"
+      redirect_to admins_backoffice_admins_path, notice: "Novo Admin criado com sucesso!"
     else
       render :new
-    end 
+    end
   end
-
+  
   def edit
   end
 
   def update
     if @admin.update(params_admin)
-      redirect_to admins_backoffice_admins_path, notice: "Administrador atualizado com sucesso!"
+      AdminMailer.update_email(current_admin, @admin).deliver_now
+      redirect_to admins_backoffice_admins_path, notice: "Adminstrador atualizado com sucesso!"
     else
       render :edit
     end
@@ -33,7 +34,8 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
 
   def destroy
     if @admin.destroy
-      redirect_to admins_backoffice_admins_path, notice: "Administrador Excluido com sucesso!"
+      redirect_to admins_backoffice_admins_path, 
+      notice: "Adminstrador exlcuído com sucesso!"
     else
       render :index
     end
@@ -41,11 +43,11 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
 
   private
 
-  def params_admin
+  def params_admin 
     params.require(:admin).permit(:email, :password, :password_confirmation)
   end
 
-  def set_admin
+  def set_admin 
     @admin = Admin.find(params[:id])
   end
 

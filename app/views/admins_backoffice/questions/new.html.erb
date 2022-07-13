@@ -1,2 +1,44 @@
-<%= render partial: "admins_backoffice/questions/shared/form",
-           locals: {action_message: "Novo"} %>
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">New Question</h1>
+  </div>
+</div>
+
+<div class="row">
+<% if @question.errors.any? %>
+  <div class="alert alert-danger" style="margin: auto; width: 80%; height: auto; text-align: left;" role="alert">
+    <ul>
+      <% @question.errors.full_messages.each do |message| %>
+      <li> <%= message %> </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= form_with(model: [ :admins_backoffice, @question ], local: true) do |form| %>
+          <div class="mb-3">
+            <%= form.label :description, class:"form-label" %>
+            <%= form.text_area :description, class:"form-control"%>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :subject_id, class:"form-label" %>
+            <%= form.collection_select(:subject_id, @subjects, :id, :description, options = {}, class:"form-control")%>
+          </div>
+
+          <div id="answers">
+            <%= form.fields_for :answers do |answer| %>
+              <%= render partial: "answer_fields", locals: { f: answer } %>
+            <% end %>
+
+            <%= link_to_add_association '[Adicionar Resposta]', form, :answers %>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

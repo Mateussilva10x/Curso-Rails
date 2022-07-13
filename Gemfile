@@ -40,8 +40,7 @@ gem 'devise'
 gem 'rails-i18n', '~> 5.1'
 gem 'tty-spinner'
 gem 'faker'
-gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
-gem 'kaminari-i18n'
+gem 'kaminari'
 gem 'cocoon'
 
 group :development, :test do
@@ -57,6 +56,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'awesome_print'
+  
 end
 
 group :test do

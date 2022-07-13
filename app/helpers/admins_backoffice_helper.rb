@@ -1,9 +1,9 @@
 module AdminsBackofficeHelper
-  def translate_attribute(object = nill, method = nill)
+  def translate_attribute(object = nil, method = nil)
     if object && method
-    object.model.human_attribute_name(method)    
+    object.model.human_attribute_name(method)
     else
-    "Informe os parâmetros corretamente!!"
-   end
+      "Informe os parâmetros corretamente."
+    end
   end
 end

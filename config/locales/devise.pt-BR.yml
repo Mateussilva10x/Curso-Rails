@@ -29,7 +29,7 @@ pt-BR:
       password_change:
         subject: "Senha modificada"
     omniauth_callbacks:
-      failure: 'Não foi possível autenticá-lo em %{kind} por causa de "%{reason}".'
+      failure: "Não foi possível autenticá-lo em %{kind} por causa de \"%{reason}\"."
       success: "Autenticado com sucesso em %{kind}."
     passwords:
       no_token: "Você não pode acessar essa página para redefinir sua senha. Se você recebeu um e-mail para redefinir sua senha, por favor, certifique-se de estar usando a URL correta."
