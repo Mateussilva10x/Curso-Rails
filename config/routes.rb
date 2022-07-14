@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'zip_code', to: 'zip_code#show'
     get 'tests', to: 'tests#index'
     get 'tests/:id', to: 'tests#make'
+    resources :answered_tests
   end
   namespace :admins_backoffice do
     get 'welcome/index'
