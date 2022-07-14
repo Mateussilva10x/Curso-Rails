@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :subjects #assuntos/areas
     resources :questions #perguntas
     resources :tests #provas
+    resources :test_questions #questões da prova
   end
   
   devise_for :admins, skip: [:registrations]
