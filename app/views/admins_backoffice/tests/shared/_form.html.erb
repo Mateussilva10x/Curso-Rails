@@ -21,11 +21,3 @@
   <%= f.submit "enviar", class:"btn btn-primary"%>
 <% end %>
 
-<script>
-  var btn = document.getElementById("HEYHEY");
-  var input_link = document.getElementById("subject_id")
-
-  input_link.addEventListener("change", () => {
-    btn.href = "<%= admins_backoffice_test_questions_path %>/?id="+input_link.value
-  })
-</script>
