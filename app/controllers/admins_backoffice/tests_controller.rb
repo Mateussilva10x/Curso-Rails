@@ -53,7 +53,7 @@ class AdminsBackoffice::TestsController < AdminsBackofficeController
   private
   def params_test
     if params[:test]
-      params.require(:test).permit(:name, :subject_id, question_ids: [])
+      params.require(:test).permit(:description, :subject_id, question_ids: [])
     else
       params.permit(:id)
     end

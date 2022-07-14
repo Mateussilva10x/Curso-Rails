@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     get 'welcome/index'
     get 'profile', to: 'profile#edit'
     patch 'profile', to: 'profile#update'
+    get 'zip_code', to: 'zip_code#show'
+    get 'tests', to: 'tests#index'
+    get 'tests/:id', to: 'tests#make'
   end
   namespace :admins_backoffice do
     get 'welcome/index'

@@ -19,7 +19,7 @@
   <tbody>
     <% @tests.each do |test| %>
       <th scope="row"> <%= test.id  %></th>
-      <td><%= test.name %></td>
+      <td><%= test.description %></td>
       <td><%= l test.created_at %></td>
       <td style="width: fit-content">
         <%= link_to edit_admins_backoffice_test_path(test), class: "btn btn-primary btn-sm" do %>
